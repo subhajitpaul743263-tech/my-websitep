@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subhajit Paul's Website</title>
+    <style>
+        /* --- CSS (from style.css) --- */
+        
+        /* Reset the browser's default ugly spacing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Target the whole body */
+        body {
+            background-color: #1a1a1a; /* Dark Gray (Hacker style) color */
+            color: white;              /* White Text */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern Font */
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Styling the Hero Card */
+        .card {
+            text-align: center;
+            padding: 30px;
+            background-color: #2d2d2d;  /* Slightly lighter Gray */
+            margin: 20px auto;          /* "auto" centers the box horizontally */
+            border-radius: 15px;        /* Rounded Corners */
+            border: 1px solid #444;     /* Thin border */
+            max-width: 600px;           /* Prevents boxes from getting too wide */
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: #00ff00;
+        }
+
+        /* Fix the lists */
+        ul, ol {
+            list-style-position: inside;    /* Brings bullets inside the center alignment */
+            line-height: 1.6;               /* Adds breathing room between lines */
+            text-align: left;
+            display: inline-block;
+        }
+
+        /* The "Contact Me" Button */
+        .action-btn {
+            display: block;             /* allow us to move it like a box */
+            margin: 30px auto;          /* Centering magic */
+            padding: 15px 40px;         /* make it big */
+            background-color: #00ff00;  /* hacker Green */
+            color: black;               /* Black text for contrast */
+            font-size: 18px;            /* Readable text */
+            font-weight: bold;          /* Thick letters */
+            border: none;               /* remove ugly border */
+            border-radius: 50px;        /* Fully rounded pill shape */
+            cursor: pointer;            /* Change mouse to a hand icon */
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+        }
+
+        /* Make it glow when you hover over it */
+        .action-btn:hover {
+            background-color: #00cc00;  /* Slightly darker green */
+            transform: scale(1.1);      /* Subtle grow (adjusted from 1.5 for better UI) */
+            box-shadow: 0 0 25px rgba(0, 255, 0, 0.5);
+        }
+
+        /* Styling the Profile Picture */
+        .profile-img {
+            width: 150px;               /* Fixed size */
+            height: 150px;              /* Equal size makes it a square */
+            border-radius: 50%;         /* Turn the square into a perfect circle */
+            border: 3px solid #00ff00;  /* Green Hacker Border */
+            margin-bottom: 15px;        /* push the name down a bit */
+            object-fit: cover;          /* Ensure the face isn't squished */
+            object-position: 45% 17%;   /* Focus on the top area */
+            background-color: #000;
+        }
+
+        /* The Dashboard Layout */
+        .dashboard-grid {
+            display: flex;              /* The Magic Switch: Turns Vertical to Horizontal */
+            gap: 20px;                  /* Adds space between the two cards */
+            max-width: 800px;           /* keep it neat */
+            margin: 0 auto;             /* Center the whole grid on the screen */
+        }
+
+        /* Make the inner cards flexible */
+        .dashboard-grid .card {
+            flex: 1;                    /* "Both of you take up equal space" */
+            margin: 0;                  /* Remove old margin we set earlier */
+        }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 768px) {
+            .dashboard-grid {
+                flex-direction: column; /* Stack Top-to-Bottom instead of Side-by-Side */
+            }
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-section card">
+        <!-- Using the uploaded image name -->
+        <img src="my ewbsite photo.jpeg" alt="Subhajit Paul" class="profile-img">
+        <h1>Subhajit Paul</h1>
+        <p>📍 Kolkata, India</p>
+        <p>🎓 Student of NiT</p>
+        <p>💻 Full Stack Developer & Linux Enthusiast</p>
+    </div>
+
+    <div class="dashboard-grid">
+        <div class="skill-section card">
+            <h2>My Skills</h2>
+            <hr style="border: 0.5px solid #444; margin: 10px 0;">
+            <ul>
+                <li>Linux (Kali)</li>
+                <li>Web Development</li>
+                <li>Strategic Thinking</li>
+            </ul>
+        </div>
+
+        <div class="project-section card">
+            <h2>Future Projects</h2>
+            <hr style="border: 0.5px solid #444; margin: 10px 0;">
+            <ol>
+                <li>Netflix Clone (CSS Mastery)</li>
+                <li>To-Do App (JS Logic)</li>
+                <li>AI Portfolio (React.js)</li>
+            </ol>
+        </div>
+    </div>
+
+    <button class="action-btn" id="contactBtn">Contact Me</button>
+
+    <script>
+        /* --- JavaScript (from script.js) --- */
+        
+        // 1. Select the button using its ID
+        const button = document.getElementById("contactBtn");
+
+        // 2. Add a "listener" to wait for a click
+        button.addEventListener("click", function() {
+            // 3. The Action: Change the button text and appearance
+            button.innerText = "Request Sent!";
+            button.style.backgroundColor = "white";
+            button.style.color = "black";
+            button.style.boxShadow = "none";
+            
+            // Optional: Revert after 3 seconds
+            setTimeout(() => {
+                button.innerText = "Contact Me";
+                button.style.backgroundColor = "#00ff00";
+                button.style.color = "black";
+            }, 3000);
+        });
+    </script>
+    <section class="text-gray-600 body-font relative">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-12">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Contact Us</h1>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify.</p>
+    </div>
+    <div class="lg:w-1/2 md:w-2/3 mx-auto">
+      <div class="flex flex-wrap -m-2">
+        <div class="p-2 w-1/2">
+          <div class="relative">
+            <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
+            <p1>SUBHAJIT PAUL</p1>
+            
+        </div>
+        <div class="p-2 w-1/2">
+          <div class="relative">
+            <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+            <p1>subhajitpaul2006119@gmail.com</p1>
+            
+        
+        <div class="p-2 w-full">
+          <div class="relative">
+            <label for="message this email" class="leading-7 text-sm text-gray-600">Message this email👆🏻</label>
+            
+        </div>
+        <div class="p-2 w-full">
+          <button class="flex mx-auto text-white bg-purple-500 border-0 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded text-lg">Button</button>
+        </div>
+        <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
+          <a class="text-purple-500">example@email.com</a>
+          <p1>linkedin -www.linkedin.com/in/
+subhajit-paul-6165753b4
+Vanity URL name
+</p1>
+          <p class="leading-normal my-5">49 Smith St.
+            <br>Saint Cloud, MN 56301
+          </p>
+          
+</section>
+</body>
+</html>
+<section class="text-gray-600 body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-wrap -m-4 text-center">
+      <div class="p-4 sm:w-1/4 w-1/2">
+        <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900">2.7K</h2>
+        <p class="leading-relaxed">Users</p>
+      </div>
+      <div class="p-4 sm:w-1/4 w-1/2">
+        <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900">1.8K</h2>
+        <p class="leading-relaxed">Subscribes</p>
+      </div>
+      <div class="p-4 sm:w-1/4 w-1/2">
+        <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900">35</h2>
+        <p class="leading-relaxed">Downloads</p>
+      </div>
+      <div class="p-4 sm:w-1/4 w-1/2">
+        <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900">4</h2>
+        <p class="leading-relaxed">Products</p>
+      </div>
+    </div>
+  </div>
+</section>
